@@ -31,6 +31,18 @@ public class Student {
 
     public String grade()
     {
+        if(getScore()>=80){
+            return "A";
+        }
+        else if(getScore()>=70){
+            return "B";
+        }
+        else if(getScore()>=60){
+            return "C";
+        }
+        else if(getScore()>=50){
+            return "D";
+        }
         return "F";
     }
 
