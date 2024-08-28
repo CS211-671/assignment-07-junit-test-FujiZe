@@ -11,9 +11,9 @@ class StudentListTest {
     StudentList list;
     @BeforeEach
     void init(){
-        s1 = new Student("6xxxxx","kong");
+        s1 = new Student("6xxxxx","kong",70);
         list = new StudentList();
-        list.addNewStudent(s1.getId(),s1.getName());
+        list.addNewStudent(s1.getId(),s1.getName(),s1.getScore());
     }
     @Test
     void TestFindStudentById(){
@@ -27,6 +27,12 @@ class StudentListTest {
     }
     @Test
     void TestViewGradeOfId(){
-
+        String grade = list.viewGradeOfId("6xxxxx");
+        assertEquals("B",list.viewGradeOfId("6xxxxx"));
+    }
+    @Test
+    void TestGiveScoreToId(){
+        list.giveScoreToId("6xxxxx",25);
+        assertEquals("A",list.viewGradeOfId("6xxxxx"));
     }
 }
